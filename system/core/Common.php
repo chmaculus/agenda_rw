@@ -846,4 +846,45 @@ if ( ! function_exists('function_usable'))
 
 		return FALSE;
 	}
+
+
+
+	#---------------------------------------
+	function log_this($file_name, $data) {
+	      $file = fopen($file_name, 'a+');
+	      fwrite($file, date("Y-m-d H:i:s")." ".$data."\n");
+	      fclose($file);
+	  }
+	#---------------------------------------
+
+
+
+	#---------------------------------------
+	function file_write($file_name, $data) {
+	      $file = fopen($file_name, 'w');
+	      fwrite($file, date("Y-m-d H:i:s")." ".$data."\n");
+	      fclose($file);
+	  }
+	#---------------------------------------
+
+
+
+
+	#---------------------------------------
+	function log_thist($file, $var) {
+	    $pfile = fopen($file, 'w');
+	    if (is_array($var)) {
+	        fwrite($pfile, date("Y-m-d H:i:s")." ".print_r($var, true) . " \n");
+	    } else {
+	        fwrite($pfile, date("Y-m-d H:i:s")." ".$var . "\n");
+	    }
+	    fclose($pfile);
+	}
+	#---------------------------------------
+
+
+
+
+
+
 }

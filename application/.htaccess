@@ -1,6 +1,24 @@
-<IfModule authz_core_module>
-    Require all denied
-</IfModule>
-<IfModule !authz_core_module>
-    Deny from all
-</IfModule>
+RewriteEngine on
+Options +FollowSymLinks
+
+Options -Indexes
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+#RewriteBase /agenda_rw
+
+
+RewriteRule ^(.*)$ index.php?url=$1 
+
+#ErrorDocument 404 /error.php
+#ErrorDocument 303 /error.php
+
+
+#<IfModule authz_core_module>
+    #    Require all denied
+    #</IfModule>
+    #<IfModule !authz_core_module>
+        #    Deny from all
+        #</IfModule>
+
